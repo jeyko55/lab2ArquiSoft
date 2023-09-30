@@ -62,12 +62,12 @@ sonar:
       #This action allows caching dependencies and build outputs to improve workflow execution time.
       uses: actions/cache@v1
       with:
-path: ~/.m2
-  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-  restore-keys: ${{ runner.os }}-m2
-  #Analyze project with SonarCloud
-  - name: Analyze with SonarCloud
-    run: mvn -B verify sonar:sonar -Dsonar.projectKey=jeyko55_lab2ArquiSoft -Dsonar.organization=jeyko55 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    #Analyze project with SonarCloud
+    - name: Analyze with SonarCloud
+      run: mvn -B verify sonar:sonar -Dsonar.projectKey=jeyko55_lab2ArquiSoft -Dsonar.organization=jeyko55 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
