@@ -49,9 +49,4 @@ public class DataController {
         }
         return currencies;
     }
-
-
-
-
-
 }
